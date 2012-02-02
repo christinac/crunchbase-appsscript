@@ -15,10 +15,3 @@ Included functions
 	cbcity(company)
 	  Returns the "headquarter city" of the specified company.
     (Cities follow a different structure than other fields.)
-		
-What else do I need?
---------------------
-
-This library does not deal with the management of your tokens - only the interaction between
-your code and the Foursquare API. If you are using it in an application that needs to use user
-data via an auth_token, you will need to handle the storage of tokens for usage at later dates.

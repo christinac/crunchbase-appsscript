@@ -15,3 +15,7 @@ Included functions
 	cbcity(company)
 	  Returns the "headquarter city" of the specified company.
     (Cities follow a different structure than other fields.)
+    	
+   	cbmilestones(company)
+	  Returns the headline of the most recent Techcrunch article in which the company is tagged.
+	

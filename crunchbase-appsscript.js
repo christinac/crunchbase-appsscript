@@ -7,7 +7,7 @@ function cbsearch(company, field) {
     var companyInfo = Utilities.jsonParse(response.getContentText());
 
     if (isGarbage(companyInfo) || isGarbage(companyInfo[field])) {
-      return "";
+      return " ";
     }
   
     return companyInfo[field];
@@ -32,6 +32,19 @@ function cbcity(company){
   }catch(error){
     //catch 404 errors when company is not found in Crunchbase
   }
+}
+
+function cbmilestones(company){
+  var url = "http://api.crunchbase.com/v/1/company/" + String.toLowerCase(company) + ".js";
+  var response = UrlFetchApp.fetch(url);
+
+  var companyInfo = Utilities.jsonParse(response.getContentText());
+  
+  if (isGarbage(companyInfo) || isGarbage(companyInfo["milestones"]) || isGarbage(companyInfo["milestones"][0]) || isGarbage(companyInfo["milestones"][0]["description"])){
+    return " ";
+  } else {  
+    return companyInfo["milestones"][0]["description"];  
+  } 
 }
 
 function isGarbage(output){

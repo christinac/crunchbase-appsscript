@@ -6,13 +6,13 @@ function cbsearch(company, field) {
   
     var companyInfo = Utilities.jsonParse(response.getContentText());
 
-    if (isGarbage(companyInfo) || isGarbage(companyInfo[field])) {
-      return " ";
+    if (isGarbage(companyInfo) || isGarbage(companyInfo[field])){
+      return "Information not found in Crunchbase";
     }
   
     return companyInfo[field];
   }catch(error){
-    //catch 404 errors when company is not found in Crunchbase
+      return "Company not found in crunchbase.";
   }
 }
 
@@ -25,7 +25,7 @@ function cbcity(company){
     var companyInfo = Utilities.jsonParse(response.getContentText());
 
     if (isGarbage(companyInfo) || isGarbage(companyInfo["offices"]) || isGarbage(companyInfo["offices"][0]) || isGarbage(companyInfo["offices"][0]["city"])){
-      return "";
+      return "Information not found in Crunchbase";
     } else {  
       return companyInfo["offices"][0]["city"];  
     }
@@ -41,7 +41,7 @@ function cbmilestones(company){
   var companyInfo = Utilities.jsonParse(response.getContentText());
   
   if (isGarbage(companyInfo) || isGarbage(companyInfo["milestones"]) || isGarbage(companyInfo["milestones"][0]) || isGarbage(companyInfo["milestones"][0]["description"])){
-    return " ";
+    return "Milestone information not found in Crunchbase";
   } else {  
     return companyInfo["milestones"][0]["description"];  
   } 
